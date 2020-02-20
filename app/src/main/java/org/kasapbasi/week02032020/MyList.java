@@ -9,6 +9,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MyList extends ListActivity {
 
@@ -21,5 +24,16 @@ public class MyList extends ListActivity {
                 android.R.layout.simple_list_item_1,
                 getResources().getStringArray(R.array.ulkeler))
         );
+    }
+
+    @Override
+    protected void onListItemClick(ListView l, View v, int position, long id) {
+        super.onListItemClick(l, v, position, id);
+        l.getAdapter().getItem(position).toString();
+        l.getAdapter().getItem(position).toString();
+
+                // Toast.makeText(this, ((TextView) v).getText(),Toast.LENGTH_LONG).show();
+        Toast.makeText(this,  l.getItemAtPosition(position).toString(),Toast.LENGTH_LONG).show();
+
     }
 }
